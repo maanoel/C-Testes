@@ -1,0 +1,16 @@
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\bin\Debug\net5.0\ConsoleTestes.exe
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\bin\Debug\net5.0\ConsoleTestes.deps.json
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\bin\Debug\net5.0\ConsoleTestes.runtimeconfig.json
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\bin\Debug\net5.0\ConsoleTestes.runtimeconfig.dev.json
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\bin\Debug\net5.0\ConsoleTestes.dll
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\bin\Debug\net5.0\ref\ConsoleTestes.dll
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\bin\Debug\net5.0\ConsoleTestes.pdb
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\obj\Debug\net5.0\ConsoleTestes.csproj.AssemblyReference.cache
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\obj\Debug\net5.0\ConsoleTestes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\obj\Debug\net5.0\ConsoleTestes.AssemblyInfoInputs.cache
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\obj\Debug\net5.0\ConsoleTestes.AssemblyInfo.cs
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\obj\Debug\net5.0\ConsoleTestes.csproj.CoreCompileInputs.cache
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\obj\Debug\net5.0\ConsoleTestes.dll
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\obj\Debug\net5.0\ref\ConsoleTestes.dll
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\obj\Debug\net5.0\ConsoleTestes.pdb
+C:\Users\manoel.vitor\Desktop\teste\C-Testes\ConsoleTestes\ConsoleTestes\obj\Debug\net5.0\ConsoleTestes.genruntimeconfig.cache
