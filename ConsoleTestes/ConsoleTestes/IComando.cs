@@ -2,6 +2,7 @@
 {
   public interface IComando
   {
+
     void Executar();
   }
 }

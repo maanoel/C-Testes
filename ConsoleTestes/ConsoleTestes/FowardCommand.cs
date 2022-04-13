@@ -16,6 +16,7 @@ namespace ConsoleTestes
     public void Executar()
     {
       Submarino.AumentarHorizontal(Valor);
+      Submarino.AumentarProfundidadeMirando(Valor);
     }
 
   }

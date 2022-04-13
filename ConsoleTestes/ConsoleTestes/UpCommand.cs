@@ -13,7 +13,7 @@
 
     public void Executar()
     {
-      Submarino.DiminuirProfundidade(Valor);
+      Submarino.DiminuirMira(Valor);
     }
   }
 }
