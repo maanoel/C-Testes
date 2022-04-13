@@ -29,7 +29,7 @@ namespace Tests
     }
 
     [Fact]
-    public void DeveLerOsComandoDeUmArquivoExteno()
+    public void DeveLerOsComandoDeUmArquivoExterno()
     {
       ControleSubmarinoBuilder builder = new ControleSubmarinoBuilder();
       Submarino submarino = new Submarino();
@@ -67,6 +67,29 @@ namespace Tests
       builder.ExecutarComandos();
 
       Assert.Equal(900, submarino.Multiplicar());
+    }
+
+
+    [Fact]
+    public void DeveLerOsComandoDeUmArquivoExternoCalculandoMira()
+    {
+      ControleSubmarinoBuilder builder = new ControleSubmarinoBuilder();
+      Submarino submarino = new Submarino();
+
+      var linhas = File.ReadAllLines($@"C:\Users\manoel.vitor\Desktop\teste\C-Testes\Submarino2.txt");
+
+      foreach(var linha in linhas)
+      {
+        string nomeComando = linha.Substring(0, linha.Length - 1);
+        int argumentoComando = int.Parse(linha.Substring(linha.Length - 1, 1));
+        IComando comando = new CommandoCreator(submarino, nomeComando, argumentoComando).Criar();
+
+        builder.AdicionarComando(comando);
+      }
+
+      builder.ExecutarComandos();
+
+      Assert.NotNull(builder);
     }
   }
 }
