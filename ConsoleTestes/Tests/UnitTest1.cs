@@ -49,5 +49,24 @@ namespace Tests
 
       Assert.NotNull(builder);
     }
+
+    [Fact]
+    public void DeveInserirSeisComandosERetornar900()
+    {
+      ControleSubmarinoBuilder builder = new ControleSubmarinoBuilder();
+      Submarino submarino = new Submarino();
+
+      builder.
+      AdicionarComando(new FowardCommand(submarino, 5)).
+      AdicionarComando(new DownCommand(submarino, 5)).
+      AdicionarComando(new FowardCommand(submarino, 8)).
+      AdicionarComando(new UpCommand(submarino, 3)).
+      AdicionarComando(new DownCommand(submarino, 8)).
+      AdicionarComando(new FowardCommand(submarino, 2));
+
+      builder.ExecutarComandos();
+
+      Assert.NotNull(builder);
+    }
   }
 }
