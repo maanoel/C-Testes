@@ -66,7 +66,7 @@ namespace Tests
 
       builder.ExecutarComandos();
 
-      Assert.NotNull(builder);
+      Assert.Equal(900, submarino.Multiplicar());
     }
   }
 }

@@ -19,9 +19,10 @@
       _profundidade += valor;
     }
 
-    public int AumentarProfundidadeMirando(int valor)
+    public void  AumentarProfundidadeMirando(int valor)
     {
-      return _profundidade += _aim * valor;
+      if(_aim > 0)
+        _profundidade += _aim * valor;
     }
 
     public void DiminuirProfundidade(int valor)
@@ -36,7 +37,7 @@
 
     public void AumentarMira(int valor)
     {
-      _aim -= valor;
+      _aim += valor;
     }
   }
 }
