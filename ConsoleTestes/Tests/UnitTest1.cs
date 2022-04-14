@@ -91,5 +91,16 @@ namespace Tests
 
       Assert.NotNull(builder);
     }
+
+    [Fact]
+    public void DeveCalcularOGamaEEpsilonRetornando198() {
+
+      string[] linhas = File.ReadAllLines($@"C:\Users\manoel.vitor\Desktop\teste\C-Testes\Submarino3.txt");
+      ICalculadoraSubmarino calculadoraGama = new CalcularDoraGama(linhas);
+      ICalculadoraSubmarino calculadoraEpsilon = new CalculadoraEpsilon(linhas);
+
+      int consumoDeEnergia = calculadoraGama.Calcular() * calculadoraEpsilon.Calcular();
+      Assert.Equal(198, consumoDeEnergia);
+    }
   }
 }
