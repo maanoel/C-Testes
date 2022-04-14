@@ -10,10 +10,18 @@ namespace Tests
     protected const int ligado = 1;
     protected const int desligado = 0;
 
+    protected CalculadoraSubmarino(string [] linhas)
+    {
+      this.quantidadeBitsLinha = linhas[0].Length;
+      this.linhas = linhas;
+    }
+
     public abstract bool ObterBitFrequencia(int indiceCaracter);
 
     public int Calcular()
     {
+      energiConsumida = "";
+
       for(int indiceCaracter = 0; indiceCaracter < quantidadeBitsLinha; indiceCaracter++)
       {
         CalcularBitFrequencia(indiceCaracter);

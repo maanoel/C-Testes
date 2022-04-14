@@ -5,16 +5,14 @@ namespace Tests
 {
   internal class CalcularDoraGama : CalculadoraSubmarino
   {
-   
-    public CalcularDoraGama(string[] linhas)
+    public CalcularDoraGama(string[] linhas) : 
+    base(linhas)
     {
-      this.linhas = linhas;
-      this.quantidadeBitsLinha = linhas[0].Length;
     }
 
     public override bool ObterBitFrequencia(int indiceCaracter)
     {
-      int contadorLigado = 0, contadorDesligado =0;
+      int contadorLigado = 0, contadorDesligado = 0;
 
       for(int linha = 0; linha < linhas.Length; linha++)
       {
@@ -22,8 +20,8 @@ namespace Tests
 
         if(int.Parse(caracteresLinha[indiceCaracter].ToString()) == ligado)
           contadorLigado++;
-
-        contadorDesligado++;
+        else
+          contadorDesligado++;
       }
 
       return contadorLigado > contadorDesligado;

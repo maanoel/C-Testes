@@ -96,11 +96,11 @@ namespace Tests
     public void DeveCalcularOGamaEEpsilonRetornando198() {
 
       string[] linhas = File.ReadAllLines($@"C:\Users\manoel.vitor\Desktop\teste\C-Testes\Submarino3.txt");
-      ICalculadoraSubmarino calculadoraGama = new CalcularDoraGama(linhas);
-      ICalculadoraSubmarino calculadoraEpsilon = new CalculadoraEpsilon(linhas);
+      CalculadoraSubmarino calculadoraGama = new CalcularDoraGama(linhas);
+      CalculadoraSubmarino calculadoraEpsilon = new CalculadoraEpsilon(linhas);
 
       int consumoDeEnergia = calculadoraGama.Calcular() * calculadoraEpsilon.Calcular();
-      Assert.Equal(198, consumoDeEnergia);
+      Assert.Equal(3320834, consumoDeEnergia);
     }
   }
 }

@@ -2,11 +2,10 @@
 {
   internal class CalculadoraEpsilon : CalculadoraSubmarino
   {
-    private string[] linhas;
 
-    public CalculadoraEpsilon(string[] linhas)
+    public CalculadoraEpsilon(string[] linhas): base(linhas)
     {
-      this.linhas = linhas;
+      
     }
 
     public override bool ObterBitFrequencia(int indiceCaracter)
@@ -17,13 +16,13 @@
       {
         var caracteresLinha = linhas[linha].ToCharArray();
 
-        if(int.Parse(caracteresLinha[indiceCaracter].ToString()) == ligado)
+        if(int.Parse(caracteresLinha[indiceCaracter].ToString()) == desligado)
           contadorDesligado++;
-
-        contadorLigado++;
+        else
+          contadorLigado++;
       }
 
-      return contadorLigado > contadorDesligado;
+      return contadorDesligado > contadorLigado;
     }
   }
 }
