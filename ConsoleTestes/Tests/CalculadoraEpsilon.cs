@@ -1,6 +1,6 @@
 ﻿namespace Tests
 {
-  internal class CalculadoraEpsilon : ICalculadoraSubmarino
+  internal class CalculadoraEpsilon : CalculadoraSubmarino
   {
     private string[] linhas;
 
@@ -9,9 +9,21 @@
       this.linhas = linhas;
     }
 
-    public int Calcular()
+    public override bool ObterBitFrequencia(int indiceCaracter)
     {
-      return 9;
+      int contadorLigado = 0, contadorDesligado = 0;
+
+      for(int linha = 0; linha < linhas.Length; linha++)
+      {
+        var caracteresLinha = linhas[linha].ToCharArray();
+
+        if(int.Parse(caracteresLinha[indiceCaracter].ToString()) == ligado)
+          contadorDesligado++;
+
+        contadorLigado++;
+      }
+
+      return contadorLigado > contadorDesligado;
     }
   }
 }
