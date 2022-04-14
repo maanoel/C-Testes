@@ -20,24 +20,34 @@ namespace Tests
 
     public int Calcular()
     {
-      return ObterTaxaGama();
+      return ObterTaxa();
     }
 
-    private int ObterTaxaGama()
+    private int ObterTaxa()
+    {
+      return CalcularEnergiaConsumida();
+    }
+
+    private int CalcularEnergiaConsumida()
     {
       for(int indiceCaracterer = 0; indiceCaracterer < quantidadeBitsLinha; indiceCaracterer++)
       {
-        ObterBitMaiorFrequencia(indiceCaracterer);
+        CalcularBitFrequencia(indiceCaracterer);
       }
 
       return Convert.ToInt32(energiConsumida, 2);
     }
 
-    private void ObterBitMaiorFrequencia(int indiceCaracterer)
+    private void CalcularBitFrequencia(int indiceCaracterer)
     {
-      bool bitMaiorFrequencia;
-      var contadorLigado = 0;
-      var contadorDesligado = 0;
+      var bitLigado = ObterBitMaiorFrequencia(indiceCaracterer);
+
+      AdicionarBitEnergiaConsumida(bitLigado);
+    }
+
+    private bool ObterBitMaiorFrequencia(int indiceCaracterer)
+    {
+      int contadorLigado = 0, contadorDesligado =0;
 
       for(int linha = 0; linha < linhas.Length; linha++)
       {
@@ -49,10 +59,12 @@ namespace Tests
         contadorDesligado++;
       }
 
-      bitMaiorFrequencia = contadorLigado > contadorDesligado;
-      energiConsumida += bitMaiorFrequencia ? ligado.ToString() : desligado.ToString();
+      return contadorLigado > contadorDesligado;
+    }
 
-      return bitMaiorFrequencia;
+    private void AdicionarBitEnergiaConsumida(bool bitLigado)
+    {
+      energiConsumida += bitLigado ? ligado.ToString() : desligado.ToString();
     }
   }
 }
