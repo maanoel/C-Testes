@@ -14,7 +14,7 @@ namespace Tests
     {
       int contadorLigado = 0, contadorDesligado = 0;
 
-      for(int linha = 0; linha < linhas.Length; linha++)
+      for (int linha = 0; linha < linhas.Length; linha++)
       {
         var caracteresLinha = linhas[linha].ToCharArray();
 
@@ -22,6 +22,7 @@ namespace Tests
           contadorLigado++;
         else
           contadorDesligado++;
+
       }
 
       return contadorLigado > contadorDesligado;
