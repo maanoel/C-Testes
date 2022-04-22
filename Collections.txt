@@ -15,6 +15,10 @@ namespace HelloWorld
         foreach(var collection in myCollection){
         	Console.WriteLine(collection);
         }
+        
+        Console.WriteLine(myCollection[0]);
+        Console.WriteLine(myCollection[1]);
+        
     }
   }
 }
