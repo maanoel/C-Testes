@@ -18,6 +18,7 @@ namespace HelloWorld
         
         Console.WriteLine(myCollection[0]);
         Console.WriteLine(myCollection[1]);
+        Console.WriteLine(myCollection.Count);
         
     }
   }
