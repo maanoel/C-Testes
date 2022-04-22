@@ -1,0 +1,37 @@
+using System;
+
+namespace HelloWorld
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+		
+        GFG<int> teste = new GFG<int>();
+        teste.value = 1;
+        
+        Console.WriteLine(teste.value);
+        
+        GFG<string> teste2 = new GFG<string>();
+        teste2.value = "Olá ;D";
+        
+        Console.WriteLine(teste2.value);
+        
+    }
+    
+    class GFG<T> {
+    	
+        private T data;
+        
+        public T value{
+          get{
+              return this.data;
+          }
+
+          set{
+              this.data = value;
+          }
+        }
+    }
+  }
+}
