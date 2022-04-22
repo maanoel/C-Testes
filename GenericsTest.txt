@@ -17,6 +17,11 @@ namespace HelloWorld
         
         Console.WriteLine(teste2.value);
         
+        ///Generics in method
+        
+        GFX teste3 = new GFX();
+        teste3.PrintType<int>("Olá", 1);
+        
     }
     
     class GFG<T> {
@@ -31,6 +36,13 @@ namespace HelloWorld
           set{
               this.data = value;
           }
+        }
+    }
+    
+	class GFX {
+    	public void PrintType<T> (string msg, T value){
+        	Console.WriteLine(msg);
+            Console.WriteLine(value);
         }
     }
   }
