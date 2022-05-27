@@ -25,7 +25,7 @@ function createUser(name, email) {
   //Percebeu também que não precisou do else? 
   //Quando o email for válido a funcao já retorna isEmailValid, então o código do segundo return NUNCA será executado nesse caso
   //Quando o email não for válido, o primeiro RETURN nunca será executado, apenas o segundo return
-  //Esse macete simples vai tornar seus códigos mais elegantes e profissionais
+  //Esse macete simples vai tornar seus códigos mais elegantes ainda!
 }
 
 
