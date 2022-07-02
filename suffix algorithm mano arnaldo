@@ -1,0 +1,76 @@
+<script>
+  /*
+  -----------------------------Mini-teste de programação---------------------------------
+  Sua tarefa é remover duplicação do fim de cada palavra de um texto, mas somente se todas as
+  palavras do texto tiverem duplicação.
+
+
+  Entrada:
+  A entrada é composta por um único caso teste contendo um texto de uma única linha com pelo
+  menos uma palavra, sendo todas minúsculas, sem caracteres especiais e sem acentuação.
+  Todas as palavras estão separadas por apenas um único caractere de espaço. A entrada deve
+  ser lida pela entrada padrão.
+  Saída:
+  Deve-se imprimir o novo texto sem duplicação (considere a maior duplicação da palavra) do fim
+  de cada palavra com um ponto final.
+  Entrada:
+  oo ratoato roeuoeu aa roupaoupa dodo reiei
+  dee romaoma
+  Saída:
+  o rato roeu a roupa do rei de roma.
+  Entrada:
+  banana
+  Saída:
+  bana.
+  Entrada:
+  a bananeira tem banana
+  Saída:
+  a bananeira tem banana.
+  */
+
+  var entrada = `oo ratoato roeuoeu aa roupaoupa dodo reiei dee romaoma`;
+
+  // <> Escreva a sua solução aqui
+  let palavras = entrada.split(" ");
+  let resposta = "";
+  let duplicada;
+  let contadorDuplicada = 0;
+
+  for (let i = 0; i < palavras.length; i++) {
+    const palavra = palavras[i];
+    let sufixos = [];
+
+    for (let x = 0; x < palavra.length; x++) {
+      sufixos.push(palavra.substring(palavra.length, x));
+    }
+
+    for (let y = 0; y < sufixos.length; y++) {
+      if (palavra.split(sufixos[y]).length - 1 == 2) {
+        duplicada = true;
+        let contadorSubs = palavra.length - sufixos[y].length;
+
+        let palavraFinal = palavra.substring(0, contadorSubs);
+        if (resposta === "") {
+          resposta = palavraFinal;
+        } else {
+          resposta += " " + palavraFinal;
+        }
+        break;
+      } else {
+        duplicada = false;
+      }
+    }
+    if (duplicada) {
+      contadorDuplicada++;
+    }
+  }
+
+  if (contadorDuplicada === palavras.length) {
+    resposta += ".";
+  } else {
+    resposta = entrada + ".";
+  }
+
+  // Escreva a sua solução aqui </>
+  console.log(resposta);
+</script>
