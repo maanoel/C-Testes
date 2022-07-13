@@ -1,0 +1,28 @@
+# Demo of Angular v12.2's new Split Two-Way Binding Check (Error: NG8007)
+
+## Serve the application to view the error
+
+Run `ng serve` in the Terminal below for a dev server, to view the error example:
+
+```
+Error: src/app/parent/parent.component.ts:6:18 - error NG8007: The property and event halves of the two-way binding 'value' are not bound to the same target.
+            Find more at https://angular.io/guide/two-way-binding#how-two-way-binding-works
+
+6     <app-child [(value)]="counterValue"></app-child>
+                   ~~~~~
+
+  src/app/child/child.component.ts:10:14
+    10 export class ChildComponent {
+                    ~~~~~~~~~~~~~~
+    The property half of the binding is to the 'ChildComponent' component.
+  src/app/parent/parent.component.ts:6:6
+    6     <app-child [(value)]="counterValue"></app-child>
+           ~~~~~~~~~
+    The event half of the binding is to a native event called 'value' on the <app-child> DOM element.
+ 
+ Are you missing an output declaration called 'valueChange'?
+```
+
+## Learn more
+
+fix(compiler-cli): check split two way binding [#42601](https://github.com/angular/angular/pull/42601)
