@@ -1,0 +1,2 @@
+const area = 3.14 * 2 ** 2
+alert(area)
