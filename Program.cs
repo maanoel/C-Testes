@@ -65,3 +65,19 @@ Console.WriteLine("{0} tem um {1} anos e tem saldo igual a {2:F2}",
     idade,
     saldo
     );
+
+
+
+//****************** CODE KATAAA /*************************
+
+int a, b, c;
+
+a = 10;
+b = 30;
+c = 30;
+
+double p = (a + b + c) / 2.0;
+
+double area = Math.Sqrt(p * (p-a) * (p-b) * (p-c));
+
+Console.WriteLine(area.ToString("F4", CultureInfo.InvariantCulture));
