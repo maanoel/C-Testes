@@ -81,3 +81,73 @@ double p = (a + b + c) / 2.0;
 double area = Math.Sqrt(p * (p-a) * (p-b) * (p-c));
 
 Console.WriteLine(area.ToString("F4", CultureInfo.InvariantCulture));
+
+
+// See https://aka.ms/new-console-template for more information
+
+using System.Globalization;
+
+
+Console.WriteLine(Math.Sqrt(2));
+
+
+//****************** CODE KATAAA /*************************
+
+
+
+var triangulo = new Triangulo(20, 30, 40);
+double area = triangulo.CalcularArea();
+
+Console.WriteLine(triangulo);
+Console.WriteLine(area);
+
+class Triangulo
+{
+    public Triangulo(double ladoA, double ladoB, double ladoC)
+    {
+        LadoA = ladoA;
+        LadoB = ladoB;
+        LadoC = ladoC;
+    }
+
+    public double LadoA { get; private set; }
+    public double LadoB { get; private set; }
+    public double LadoC { get; private set; }
+
+    public double CalcularArea()
+    {
+        //Fórmula de Heron
+        double p = (LadoA + LadoB + LadoC) / 2.0;
+        return Math.Sqrt(p * (p - LadoA) * (p - LadoB) * (p - LadoC));
+    }
+
+    public override string ToString()
+    {
+        return $"Lado A {LadoA} Lado B {LadoB} {LadoC}";
+    }
+}
+
+class Produto
+{
+    public string Nome { get; private set; }
+    public int Quantidade { get; private set; }
+    public int Preco { get; private set; }
+
+    public Produto(string nome, int quantidade, int preco)
+    {
+        Nome = nome;
+        Quantidade = quantidade;
+        Preco = preco;
+    }
+
+    public void RemoverProduto(int quantidade) 
+    {
+        Quantidade -= quantidade;
+    }
+
+    public void Atualizar() 
+    {
+        Quantidade++;
+    }
+}
+/***************/
