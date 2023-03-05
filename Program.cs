@@ -189,3 +189,38 @@ public class Calculadora
 
 
 /***************/
+
+
+/* CODING KATA */
+
+
+using System.Collections;
+
+IEnumerable<Pessoa> hashSet = new HashSet<Pessoa>();
+List<Pessoa> lista = new List<Pessoa>();
+Hashtable listPessoa = new Hashtable();
+
+
+
+
+
+lista.Find(Test);
+
+var teste = lista.Find(l => l.Nome == "Vitor");
+
+lista.RemoveRange(1, 1);
+
+//PREDICATE
+
+static bool Test(Pessoa pessoa)
+{
+    if (pessoa.Nome == "Vitor") return true;
+
+    return false;
+}
+
+public class Pessoa
+{ 
+    public string Nome { get; private set ; }
+}
+
