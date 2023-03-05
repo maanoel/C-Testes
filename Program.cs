@@ -150,4 +150,42 @@ class Produto
         Quantidade++;
     }
 }
+
+/* CODING KATA */
+
+
+//REF precisa ser inicializada
+//OUT não precisa ser inicializado
+
+int a = 10;
+int retorno = 10;
+
+new Calculadora().TesteTres(ref a, out retorno);
+
+public class Calculadora
+{
+    public double Soma(params int[] numeros)
+    {
+        double soma = 0;
+
+        for (int i = 0; i < numeros.Length; i++)
+        {
+            soma += numeros[i];
+        }
+
+        return soma;
+    }
+
+    public void Teste(params int[] parametros)
+    { 
+        
+    }
+
+    public void TesteTres(ref int teste, out int retorno) {
+        retorno = teste * 3;
+    }
+}
+
+
+
 /***************/
