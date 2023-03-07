@@ -224,3 +224,27 @@ public class Pessoa
     public string Nome { get; private set ; }
 }
 
+
+
+double[,] matriz = new double[2, 3];
+
+Console.WriteLine(matriz.Length);
+Console.WriteLine(matriz.Rank);
+Console.WriteLine(matriz.GetLength(0));
+Console.WriteLine(matriz.GetLength(1));
+
+
+matriz[0, 0] = 1;
+matriz[0, 1] = 2;
+matriz[0, 2] = 3;
+
+Console.WriteLine(matriz[0,2]);
+
+
+
+
+int[,] matrizDeIneteiros = new int[5, 5];
+
+matrizDeIneteiros[0, 1] = 5;
+
+Console.WriteLine(matrizDeIneteiros[0,1].ToString());
