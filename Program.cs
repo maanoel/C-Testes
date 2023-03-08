@@ -282,3 +282,32 @@ bool testeStringComEspacos = string.IsNullOrWhiteSpace(s2);
 string[] testeSplit = s1.Split(" ");
 
 Console.WriteLine(testeSplit[0]);
+
+
+
+
+//DateTime é um tipo valor??
+
+// 1 tick - 100 nanosegundos
+
+using System.Globalization;
+/// CODE KATAAA
+DateTime d1 = DateTime.Now;
+
+Console.WriteLine(d1.Ticks);
+Console.WriteLine(new DateTime(2000, 01, 01));
+Console.WriteLine(new DateTime(2000, 01, 01, 20, 20, 20));
+Console.WriteLine(new DateTime(2000, 01,01,20,20, 20, 20, DateTimeKind.Utc));
+Console.WriteLine(DateTime.Today);
+Console.WriteLine(DateTime.UtcNow);
+
+DateTime parseado = DateTime.Parse(d1.ToString());
+
+Console.WriteLine(DateTime.Parse("2000-08-15 13:05:58"));
+DateTime d3 = DateTime.Parse("15/08/2000 13:00:00");
+
+Console.WriteLine(d3);
+
+DateTime exact = DateTime.ParseExact("2000-08-15 13:58:59", "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+
+Console.WriteLine(exact);
