@@ -263,3 +263,22 @@ foreach (KeyValuePair<string, List<string>> item in dicionarioDeNumeros)
         Console.WriteLine(numero);
     }
 }
+
+
+string original = "abcde FGHIJ ABC abc DEFG";
+
+string s1 = original.ToUpper();
+string s2 = original.ToLower();
+string s3 = original.Trim();
+int n1 = original.IndexOf("bcde");
+int n2 = original.LastIndexOf("bc");
+string s4 = original.Substring(3);
+string s5 = original.Substring(0, 4);
+string s6 = original.Replace(" ", "-");
+
+bool testeVazio = string.IsNullOrEmpty(s1);
+bool testeStringComEspacos = string.IsNullOrWhiteSpace(s2);
+
+string[] testeSplit = s1.Split(" ");
+
+Console.WriteLine(testeSplit[0]);
