@@ -248,3 +248,18 @@ int[,] matrizDeIneteiros = new int[5, 5];
 matrizDeIneteiros[0, 1] = 5;
 
 Console.WriteLine(matrizDeIneteiros[0,1].ToString());
+
+
+Dictionary<string, List<string>> dicionarioDeNumeros = new Dictionary<string, List<string>>();
+
+
+dicionarioDeNumeros["Vitor"] = new List<string> { "71991520478", "32116146" };
+
+
+foreach (KeyValuePair<string, List<string>> item in dicionarioDeNumeros)
+{
+	foreach (string numero in item.Value)
+	{
+        Console.WriteLine(numero);
+    }
+}
