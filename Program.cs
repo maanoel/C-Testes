@@ -357,3 +357,26 @@ TimeSpan diferenca = dataAtual - dataNascimento;
 Console.WriteLine(diferenca.Days / 365);
 Console.WriteLine(diferenca.Hours);
 Console.WriteLine(diferenca.TotalDays);
+
+
+TimeSpan t1 = new TimeSpan(1, 30, 10);
+TimeSpan t2 = new TimeSpan(0, 10, 5);
+TimeSpan soma = t1.Add(t2);
+TimeSpan diff = t1.Subtract(t2);
+
+Console.WriteLine(soma);
+Console.WriteLine(diff);
+
+
+var data = DateTime.Now;
+
+//data.Add(soma); Aqui não funciona pq não modifica a instÂncia
+
+data = data.Add(soma); // Aqui funciona pq retorno a nova instância
+
+
+Console.WriteLine(data.ToString());
+
+TimeSpan multi = t2.Multiply(2);
+
+Console.WriteLine(multi);
