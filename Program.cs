@@ -449,3 +449,16 @@ public class Queue<T> where T : class
         return Items.Count;
     }
 }
+
+
+DateTime t1 = new DateTime(2023, 03, 09, 13, 05, 05, DateTimeKind.Utc);
+
+Console.WriteLine(t1);
+Console.WriteLine(t1.ToLocalTime());
+Console.WriteLine(t1.ToUniversalTime());
+
+var dataTeste = DateTime.Now;
+
+Console.WriteLine(dataTeste.Kind);
+Console.WriteLine(dataTeste.ToUniversalTime());
+Console.WriteLine(dataTeste.Kind);
