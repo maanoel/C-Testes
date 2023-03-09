@@ -311,3 +311,17 @@ Console.WriteLine(d3);
 DateTime exact = DateTime.ParseExact("2000-08-15 13:58:59", "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
 
 Console.WriteLine(exact);
+
+TimeSpan s1 = new TimeSpan(12, 07, 30);
+
+Console.WriteLine(s1);
+Console.WriteLine(s1.Ticks);
+
+Console.WriteLine(new TimeSpan());
+Console.WriteLine(new TimeSpan(900000000L));
+
+Console.WriteLine(TimeSpan.FromDays(1));
+Console.WriteLine(TimeSpan.FromSeconds(1.4));
+Console.WriteLine(TimeSpan.Zero);
+
+Console.WriteLine(new DateTime(TimeSpan.FromDays(1).Ticks));
