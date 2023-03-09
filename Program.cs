@@ -325,3 +325,25 @@ Console.WriteLine(TimeSpan.FromSeconds(1.4));
 Console.WriteLine(TimeSpan.Zero);
 
 Console.WriteLine(new DateTime(TimeSpan.FromDays(1).Ticks));
+
+DateTime data = DateTime.Now;
+DateTime dataDois = new DateTime(2023, 3, 8);
+Console.WriteLine(data);
+Console.WriteLine(data.Date);
+Console.WriteLine(data.Year);
+Console.WriteLine(data.TimeOfDay);
+
+Console.WriteLine(data.ToUniversalTime());
+Console.WriteLine(data.ToLongDateString());
+Console.WriteLine(data.ToShortDateString());
+Console.WriteLine(data.ToShortTimeString());
+Console.WriteLine(data.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+Console.WriteLine(data.AddDays(1));
+Console.WriteLine(data.DayOfWeek);
+Console.WriteLine(data.AddDays(7));
+
+TimeSpan diferenca = data.Subtract(dataDois);
+
+Console.WriteLine(diferenca);
+
+Console.WriteLine(new DateTime(diferenca.Ticks));
