@@ -347,3 +347,13 @@ TimeSpan diferenca = data.Subtract(dataDois);
 Console.WriteLine(diferenca);
 
 Console.WriteLine(new DateTime(diferenca.Ticks));
+
+
+var dataAtual = DateTime.Now;
+var dataNascimento = new DateTime(1989, 08, 29);
+
+TimeSpan diferenca = dataAtual - dataNascimento;
+
+Console.WriteLine(diferenca.Days / 365);
+Console.WriteLine(diferenca.Hours);
+Console.WriteLine(diferenca.TotalDays);
