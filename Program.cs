@@ -380,3 +380,72 @@ Console.WriteLine(data.ToString());
 TimeSpan multi = t2.Multiply(2);
 
 Console.WriteLine(multi);
+
+
+using System.ComponentModel.DataAnnotations;
+
+Queue<Pessoa> filaDePessoas = new Queue<Pessoa>();
+
+filaDePessoas.Enqueue(new Pessoa("Vitor Brito"));
+filaDePessoas.Enqueue(new Pessoa("Nadine Brito"));
+filaDePessoas.Enqueue(new Pessoa("Felipe Figueiredo"));
+
+var primeiroAtendimento = filaDePessoas.Dequeue();
+var segundoAtendimento = filaDePessoas.Dequeue();
+var terceiroAtendimento = filaDePessoas.Dequeue();
+
+Console.WriteLine($"A ordem dos atendimentos foram as seguintes: {primeiroAtendimento.Nome} - {segundoAtendimento.Nome} - {terceiroAtendimento.Nome}");
+
+public class Pessoa
+{
+    public string Nome { get; private set; }
+
+    public Pessoa(string nome)
+    {
+        Nome = nome;
+    }
+}
+
+public class Queue<T> where T : class
+{
+    public int Count { get; private set; }
+    public int LowestCount { get; private set; }
+    public IList<T> Items { get; private set; }
+
+    public Queue()
+    {
+        Items = new List<T>();
+    }
+
+    public void Enqueue(T item)
+    {
+        Items.Add(item);
+    }
+
+    public T Dequeue()
+    {
+        if (IsEmpty()) return default;
+
+        var firstItem = Items.First();
+        Items.Remove(firstItem);
+
+        return firstItem;
+    }
+
+    public T Peek()
+    {
+        if (IsEmpty()) return default;
+
+        return Items.First();
+    }
+
+    public bool IsEmpty()
+    {
+        return !Items.Any();
+    }
+
+    public int Size()
+    {
+        return Items.Count;
+    }
+}
