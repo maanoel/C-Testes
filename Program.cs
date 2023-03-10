@@ -497,3 +497,32 @@ OrderStatus anotherOfAnother;
 Enum.TryParse("Shipped", out anotherOfAnother);
 
 Console.WriteLine(anotherOfAnother);
+
+
+//KATA OF ENUM
+
+//KATAA
+
+using CourseC_01.Entities;
+using CourseC_01.Enums;
+
+Order order = new Order
+{
+    Id = 1800,
+    Moment = DateTime.Now,
+    Status = OrderStatus.PendingPayment
+};
+
+Console.WriteLine(order);
+
+OrderStatus os = Enum.Parse<OrderStatus>("Shipped");
+OrderStatus anotherOs = Enum.Parse<OrderStatus>("Delivered");
+
+Console.WriteLine(os);
+Console.WriteLine(anotherOs);
+
+OrderStatus anotherOfAnother;
+
+Enum.TryParse("Shipped", out anotherOfAnother);
+
+Console.WriteLine(anotherOfAnother);
