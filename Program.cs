@@ -462,3 +462,10 @@ var dataTeste = DateTime.Now;
 Console.WriteLine(dataTeste.Kind);
 Console.WriteLine(dataTeste.ToUniversalTime());
 Console.WriteLine(dataTeste.Kind);
+
+
+DateTime t1 = DateTime.Parse("2000-08-15 13:05:58");
+DateTime t2 = DateTime.Parse("2000-08-15T13:05:58Z"); //ISO 8601
+
+Console.WriteLine(t1);
+Console.WriteLine(t2);
