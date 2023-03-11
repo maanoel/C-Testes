@@ -526,3 +526,85 @@ OrderStatus anotherOfAnother;
 Enum.TryParse("Shipped", out anotherOfAnother);
 
 Console.WriteLine(anotherOfAnother);
+
+
+
+///KATA
+
+using CourseC_01.Entities;
+using System.Text;
+
+Client client = CreatingClient();
+int quantity = CreatingItems();
+OrderItem firstItem = EnterItemOne();
+OrderItem secondItem = EnterItemTwo();
+
+Order order = new Order(client); //AGGREGATE
+order.AddItem(firstItem);
+order.AddItem(secondItem);
+
+Summary(order);
+
+static Client CreatingClient()
+{
+    Console.WriteLine("Enter cliente data");
+
+    string name = Console.ReadLine();
+    string email = Console.ReadLine();
+    DateTime birthDate = DateTime.Now;
+
+    DateTime.TryParse(Console.ReadLine(), out birthDate);
+
+    Client client = new Client(name, email, birthDate);
+
+    return client;
+}
+
+static int CreatingItems()
+{
+    Console.WriteLine("How many items to this order?");
+
+    int quantity = 0;
+
+    int.TryParse(Console.ReadLine(), out quantity);
+
+    return quantity;
+}
+
+static OrderItem EnterItemOne()
+{
+    Console.WriteLine("Enter #1 item data:");
+
+    string productName = Console.ReadLine();
+    double price = double.Parse(Console.ReadLine());
+    int quantity = int.Parse(Console.ReadLine());
+
+    return new OrderItem(quantity, price, new Product(productName, price));
+}
+
+static OrderItem EnterItemTwo()
+{
+    Console.WriteLine("Enter #2 item data:");
+
+    string secondProductName = Console.ReadLine();
+    double secondPrice = double.Parse(Console.ReadLine());
+    int secondQuantity = int.Parse(Console.ReadLine());
+
+    return new OrderItem(secondQuantity, secondPrice, new Product(secondProductName, secondPrice));
+}
+static void Summary(Order order)
+{
+
+    var orderItemsText = String.Join("", order.OrderItems.Select(order => order.ToString()));
+
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.AppendLine("ORDER SUMMARY");
+    stringBuilder.AppendLine("Order Moment: " + order.Moment.ToString("dd/MM/yyyy hh:MM:ss"));
+    stringBuilder.AppendLine("Order status: "+ order.Status.ToString());
+    stringBuilder.AppendLine("Client: " +  order.Client.ToString());
+    stringBuilder.AppendLine("OrderItems: " + orderItemsText);
+    stringBuilder.AppendLine("Total Price:" + order.Total());
+
+    Console.WriteLine(stringBuilder.ToString());
+}
+
