@@ -608,3 +608,140 @@ static void Summary(Order order)
     Console.WriteLine(stringBuilder.ToString());
 }
 
+
+
+
+Console.WriteLine("Enter the number of products: ");
+
+int productNumbers = int.Parse(Console.ReadLine());
+IList<Product> products = new List<Product>();
+
+for (int i = 1; i <= productNumbers; i++)
+{
+    Console.WriteLine($"Product #{i} data:");
+    Console.WriteLine("Common, used or imported?");
+
+    ProductType productType = Enum.Parse<ProductType>(Console.ReadLine());
+
+    switch (productType) {
+        case ProductType.Imported:
+            products.Add(GenerateProductImported());
+            break;
+        case ProductType.Common:
+            products.Add(GenerateProductCommon());
+            break;
+        case ProductType.Used:
+            products.Add(GenerateProductUsed());
+            break;
+    }
+}
+
+Console.WriteLine("PRICE TAGS:");
+
+foreach (Product product in products) {
+    Console.WriteLine(product.PriceTag());
+}
+
+Product GenerateProductImported()
+{
+    Console.WriteLine("Name");
+    string name = Console.ReadLine();
+
+    Console.WriteLine("Price");
+    double price = double.Parse(Console.ReadLine());
+
+    Console.WriteLine("Customs fee");
+    double customsFee = double.Parse(Console.ReadLine());
+
+    Product product = new ImportedProduct(name, price, customsFee);
+
+    return product;
+}
+
+Product GenerateProductCommon()
+{
+    Console.WriteLine("Name");
+    string name = Console.ReadLine();
+
+    Console.WriteLine("Price");
+    double price = double.Parse(Console.ReadLine());
+
+    Product product = new Product(name, price);
+
+    return product;
+}
+
+
+Product GenerateProductUsed()
+{
+    Console.WriteLine("Name");
+    string name = Console.ReadLine();
+
+    Console.WriteLine("Price");
+    double price = Double.Parse(Console.ReadLine());
+
+    Console.WriteLine("ManufactureDate");
+    DateTime manufactureDate = DateTime.Parse(Console.ReadLine());
+
+    Product product = new UsedProduct(name, price, manufactureDate);
+
+    return product;
+}
+
+internal enum ProductType : int { 
+    Common = 1,
+    Used = 2,
+    Imported = 3
+}
+
+internal class Product
+{
+    public string Name { get; private set; }
+    public double Price { get; private set; }
+
+    public Product(string name, double price)
+    {
+        Name = name;
+        Price = price;
+    }
+
+    public virtual string PriceTag()
+    {
+        return $"{Name} $ {Price}";
+    }
+}
+
+internal class ImportedProduct : Product
+{
+    public double CustomsFee { get; private set; }
+    public ImportedProduct(string name, double price, double customsFee) 
+        : base(name, price)
+    {
+        CustomsFee = customsFee;
+    }
+
+    public override string PriceTag()
+    {
+        return $"{Name} $ {TotalPrice().ToString("F2")} (Customs fee): $ {CustomsFee.ToString("F2")}";
+    }
+
+    public double TotalPrice()
+    {
+        return Price + CustomsFee;
+    }
+}
+
+internal class UsedProduct : Product
+{
+    public DateTime ManufactureDate { get; private set; }
+    public UsedProduct(string name, double price, DateTime manufactureDate) 
+        : base(name, price)
+    {
+        ManufactureDate = manufactureDate;
+    }
+
+    public override string PriceTag()
+    {
+        return $"{Name} (used) $ {Price} (Manufacture date:) {ManufactureDate.ToString("dd/MM/yyyy")}";
+    }
+}
