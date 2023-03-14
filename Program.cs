@@ -745,3 +745,65 @@ internal class UsedProduct : Product
         return $"{Name} (used) $ {Price} (Manufacture date:) {ManufactureDate.ToString("dd/MM/yyyy")}";
     }
 }
+
+
+
+
+IList<Pessoa> pessoas = new List<Pessoa>();
+
+pessoas.Add(new PessoaFisica("Vitor", 4000000, 50000));
+pessoas.Add(new PessoaJuridica("Valeria", 4000000));
+
+foreach (Pessoa pessoa in pessoas)
+{
+    Console.WriteLine(pessoa.CalcularImposto();
+}
+
+internal abstract class Pessoa
+{
+    public string Nome { get; private set; }
+    public double ReandaAnual { get; private set; }
+
+    public Pessoa(string nome, double rendaAnual)
+    {
+        ReandaAnual = rendaAnual;
+        Nome = nome;
+    }
+
+    public abstract double CalcularImposto();
+}
+
+internal class PessoaFisica: Pessoa
+{
+    public double Gastos { get; set; }
+
+    public PessoaFisica(string nome, double rendaAnual, double gastos) : base(nome, rendaAnual)
+    {
+        Gastos = gastos;
+    }
+
+    public override double CalcularImposto()
+    {
+        double taxaDescontoSaude = 0.5;
+        double limiarAltaRenda = 20000;
+        double descontoGatoSaude = Gastos * taxaDescontoSaude;
+        double taxaImposto = ReandaAnual < limiarAltaRenda ? 0.15 : 0.25;
+
+        return taxaImposto * ReandaAnual - descontoGatoSaude;
+    }
+}
+
+internal class PessoaJuridica: Pessoa
+{
+    public int NumeroFuncionarios { get; set; }
+
+    public PessoaJuridica(string nome, double rendaAnual) : base(nome, rendaAnual)
+    { 
+        
+    }
+
+    public override double CalcularImposto()
+    {
+        throw new NotImplementedException();
+    }
+}
