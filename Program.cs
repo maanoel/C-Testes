@@ -807,3 +807,61 @@ internal class PessoaJuridica: Pessoa
         throw new NotImplementedException();
     }
 }
+
+		      
+		      string[] text = new ElfBook().Text.Split("\r\n\r\n");
+IList<Elf> elfs = new List<Elf>();
+
+foreach (string line in text)
+{
+    var elf = new Elf();
+    string[] lineValues = line.Split("\r\n");
+
+    foreach (var value in lineValues)
+    {
+        var foodElf = new Food(int.Parse(value));
+        elf.AddFoodToBag(foodElf);
+    }
+
+    elfs.Add(elf);
+}
+
+double mostCaloriesInElfsBags = new ElfBagCalculator().Calculate(elfs);
+
+Console.WriteLine(mostCaloriesInElfsBags);
+
+internal class Elf
+{
+    public IList<Food> Foods { get; private set; } = new List<Food>();
+
+    public void AddFoodToBag(Food food)
+    {
+        Foods.Add(food);
+    }
+}
+
+internal class Food
+{
+    public int Calorie { get; private set; }
+
+    public Food(int calorie)
+    {
+        Calorie = calorie;
+    }
+}
+
+internal class ElfBagCalculator
+{
+    public double Calculate(IList<Elf> calculate) 
+    {
+         return calculate
+            .Select(elf => elf.Foods.Sum(f => f.Calorie))
+            .OrderByDescending(number => number)
+            .FirstOrDefault();
+    }
+}
+
+internal record ElfBook 
+{
+    public string Text { get { return "1000\r\n2000\r\n3000\r\n\r\n4000\r\n\r\n5000\r\n6000\r\n\r\n7000\r\n8000\r\n9000\r\n\r\n10000"; } }
+}
