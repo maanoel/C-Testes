@@ -882,3 +882,23 @@ Action<string> funcaoSemRetorno = message => Console.WriteLine(message);
 
 funcaoSemRetorno("teste");
 
+
+		      
+		      new CalculationService().Max(new List<int> { 1 });
+
+class CalculationService
+{
+    public T Max<T>(IList<T> list) where T : IComparable
+    {
+        T max = list[0];
+
+        foreach (T items in list)
+        {
+            if (items.CompareTo(max) > 0)
+                max = items;
+        }
+
+        return max;
+    }
+}
+
