@@ -902,3 +902,21 @@ class CalculationService
     }
 }
 
+var list = new List<Product>();
+
+list.Sort(CompareProduct);
+
+Comparison<Product> teste = (p1, p2) => p1.Name.CompareTo(p2.Name);
+
+list.Sort((p1, p2) => p1.Name.CompareTo(p2.Name));
+ 
+static int CompareProduct(Product product, Product other)
+{
+    return product.Name.CompareTo(other.Name);
+}
+class Product
+{
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+}
+		      
