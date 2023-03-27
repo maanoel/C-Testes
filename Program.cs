@@ -920,3 +920,22 @@ class Product
     public decimal Price { get; set; }
 }
 		      
+List<object> list = new List<object>();
+
+list.Add(new Product() { Name = "Vitor" });
+list.Add(new Product() { Name = "Manoel" });
+
+Func<object, bool> predicate = p => ((Product)p).Name != "Vitor";
+
+IEnumerable<object> retorno = list.Where(predicate);
+
+foreach (object item in retorno)
+{
+}
+class Product
+{
+    public string Name { get; set; }
+}
+
+
+
